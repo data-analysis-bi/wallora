@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 import WidgetKit
+import ImageIO
 
 enum AppGroup {
     static let id = "group.com.wallora.app"
@@ -25,6 +26,13 @@ extension Color {
 struct RGB: Codable, Hashable {
     var r: Double, g: Double, b: Double
     var color: Color { Color(red: r, green: g, blue: b) }
+    var hex: String { String(format: "%02X%02X%02X", Int((r * 255).rounded()), Int((g * 255).rounded()), Int((b * 255).rounded())) }
+    /// Accepts "FF9933" or "#ff9933"; returns nil for anything else.
+    static func fromHex(_ text: String?) -> RGB? {
+        guard let t = text?.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "#", with: ""),
+              t.count == 6, t.allSatisfy({ $0.isHexDigit }) else { return nil }
+        return RGB(Color(hex: t))
+    }
     init(r: Double, g: Double, b: Double) { self.r = r; self.g = g; self.b = b }
     init(_ color: Color) {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
@@ -316,5 +324,17 @@ struct DesignContent: View {
         }
         .foregroundStyle(design.foreground.color)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+    }
+}
+
+
+enum ImageTools {
+    /// Widgets have a small memory budget, so large photos are shrunk with ImageIO before drawing.
+    static func downsample(_ data: Data, maxPixel: CGFloat = 900) -> UIImage? {
+        guard let src = CGImageSourceCreateWithData(data as CFData, [kCGImageSourceShouldCache: false] as CFDictionary) else { return nil }
+        let opts: [CFString: Any] = [kCGImageSourceCreateThumbnailFromImageAlways: true, kCGImageSourceShouldCacheImmediately: true,
+                                     kCGImageSourceCreateThumbnailWithTransform: true, kCGImageSourceThumbnailMaxPixelSize: maxPixel]
+        guard let cg = CGImageSourceCreateThumbnailAtIndex(src, 0, opts as CFDictionary) else { return nil }
+        return UIImage(cgImage: cg)
     }
 }

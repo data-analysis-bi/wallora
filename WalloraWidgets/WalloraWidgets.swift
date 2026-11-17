@@ -1,6 +1,7 @@
 import WidgetKit
 import SwiftUI
 import AppIntents
+import UniformTypeIdentifiers
 
 @main
 struct WalloraWidgetBundle: WidgetBundle {
@@ -97,12 +98,16 @@ struct SelectDesignIntent: WidgetConfigurationIntent {
     @Parameter(title: "Change shloka", default: .daily) var rotation: RotationOption
     @Parameter(title: "Custom text / event name") var text: String?
     @Parameter(title: "Countdown date") var date: Date?
+    @Parameter(title: "Text color (hex, optional)") var textHex: String?
+    @Parameter(title: "Background color (hex, optional)") var backgroundHex: String?
+    @Parameter(title: "Background photo", supportedContentTypes: [.image]) var photo: IntentFile?
     @Parameter(title: "Saved design (optional)") var design: DesignEntity?
 }
 
 struct DesignEntry: TimelineEntry {
     let date: Date
     let design: WidgetDesign
+    var photo: UIImage? = nil
 }
 
 struct DesignProvider: AppIntentTimelineProvider {
@@ -117,25 +122,32 @@ struct DesignProvider: AppIntentTimelineProvider {
         d.apply(theme: c.theme.value)
         d.text = (c.text?.isEmpty == false ? c.text! : (d.kind == .countdown ? "Event" : "Jai Shri Ram"))
         d.targetDate = c.date ?? Calendar.current.date(byAdding: .day, value: 30, to: .now) ?? .now
+        if let fg = RGB.fromHex(c.textHex) { d.foreground = fg }
+        if let bg = RGB.fromHex(c.backgroundHex) { d.background = bg; d.background2 = nil }
         d.name = "Wallora"
         return d
     }
 
     func placeholder(in context: Context) -> DesignEntry { DesignEntry(date: .now, design: .sample) }
     func snapshot(for configuration: SelectDesignIntent, in context: Context) async -> DesignEntry {
-        DesignEntry(date: .now, design: makeDesign(configuration))
+        DesignEntry(date: .now, design: makeDesign(configuration), photo: photo(configuration))
+    }
+    private func photo(_ c: SelectDesignIntent) -> UIImage? {
+        guard let data = c.photo?.data else { return nil }
+        return ImageTools.downsample(data)
     }
     func timeline(for configuration: SelectDesignIntent, in context: Context) async -> Timeline<DesignEntry> {
         let d = makeDesign(configuration)
+        let pic = photo(configuration)
         let now = Date()
         let cal = Calendar.current
         let h = max(1, d.rotationHours)
         let slotHour = (cal.component(.hour, from: now) / h) * h
         let slotStart = cal.date(bySettingHour: slotHour, minute: 0, second: 0, of: now) ?? now
-        var entries = [DesignEntry(date: now, design: d)]
+        var entries = [DesignEntry(date: now, design: d, photo: pic)]
         var t = slotStart.addingTimeInterval(Double(h) * 3600)
         let end = now.addingTimeInterval(86_400)
-        while t < end { entries.append(DesignEntry(date: t, design: d)); t = t.addingTimeInterval(Double(h) * 3600) }
+        while t < end { entries.append(DesignEntry(date: t, design: d, photo: pic)); t = t.addingTimeInterval(Double(h) * 3600) }
         return Timeline(entries: entries, policy: .after(end))
     }
 }
@@ -146,7 +158,15 @@ struct DesignWidgetView: View {
     var body: some View {
         DesignContent(design: entry.design, family: family, date: entry.date)
             .widgetURL(URL(string: "wallora://open"))
-            .containerBackground(for: .widget) { DesignBackground(design: entry.design) }
+            .containerBackground(for: .widget) {
+                ZStack {
+                    DesignBackground(design: entry.design)
+                    if let p = entry.photo {
+                        Color.clear.overlay(Image(uiImage: p).resizable().scaledToFill()).clipped()
+                        Color.black.opacity(0.3)
+                    }
+                }
+            }
     }
 }
 
@@ -156,7 +176,7 @@ struct DesignWidget: Widget {
             DesignWidgetView(entry: entry)
         }
         .configurationDisplayName("Ramayana & Custom")
-        .description("Valmiki Ramayana shlokas in Sanskrit, Hindi, Gujarati or English — or your own text, countdown or date. Touch and hold → Edit Widget to customize.")
+        .description("Valmiki Ramayana shlokas in Sanskrit, Hindi, Gujarati or English — or your own text, countdown or date. Touch and hold → Edit Widget: language, theme, colors, font, photo.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }

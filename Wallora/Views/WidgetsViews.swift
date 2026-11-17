@@ -25,8 +25,10 @@ struct WidgetsView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 10) {
                         Label("Add a widget in 4 steps", systemImage: "rectangle.3.group.fill").font(.headline)
-                        Text("1. Touch and hold an empty spot on your Home Screen (or Lock Screen → Customize).\n2. Tap + and search “Wallora”.\n3. Pick “Ramayana & Custom”, choose a size, tap Add Widget.\n4. Touch and hold the widget → Edit Widget → choose language, theme, font, symbol and how often the shloka changes.")
+                        Text("1. Touch and hold an empty spot on your Home Screen (or Lock Screen → Customize).\n2. Tap + and search “Wallora”.\n3. Pick “Ramayana & Custom”, choose a size, tap Add Widget.\n4. Touch and hold the widget → Edit Widget → choose language, theme, font, symbol, colors, a background photo and how often the shloka changes.")
                             .font(.subheadline).foregroundStyle(.secondary)
+                        Text("Grey blank widget? It's an old one from before an update. Touch and hold it → Remove Widget, then add “Ramayana & Custom” again from the + list.")
+                            .font(.footnote).foregroundStyle(.secondary)
                         Text("Can't find Wallora in the + list? The widget extension didn't install — re-sideload without “Remove app extensions”.")
                             .font(.footnote).foregroundStyle(.secondary)
                     }.padding(18).background(.thinMaterial, in: RoundedRectangle(cornerRadius: 22, style: .continuous)).padding(.horizontal)
@@ -72,10 +74,20 @@ struct StudioView: View {
     @State private var design: WidgetDesign
     @State private var size: PreviewSize = .small
     @State private var pick: PhotosPickerItem?
+    @State private var copied = false
     private let symbols = ["sparkles", "heart.fill", "star.fill", "moon.stars.fill", "sun.max.fill", "bolt.fill", "leaf.fill", "flame.fill",
                            "airplane", "gift.fill", "book.fill", "music.note"]
 
     init(design: WidgetDesign) { _design = State(initialValue: design) }
+
+    private var recipe: String {
+        var lines = ["Wallora widget settings — \(design.name)", "Content: \(design.kind.title)"]
+        if design.kind == .shloka { lines.append("Language: \(design.language.title)") }
+        if design.kind == .text || design.kind == .countdown { lines.append("Custom text: \(design.text)") }
+        lines += ["Font: \(design.fontStyle.title)", "Symbol: \(design.symbol)",
+                  "Text color (hex): \(design.foreground.hex)", "Background color (hex): \(design.background.hex)"]
+        return lines.joined(separator: "\n")
+    }
 
     var body: some View {
         NavigationStack {
@@ -124,11 +136,14 @@ struct StudioView: View {
                     }
                 }
                 Section {
-                    LabeledContent("Shared with widgets", value: AppGroup.isShared ? "Yes" : "No")
+                    Button { UIPasteboard.general.string = recipe; copied = true } label: {
+                        Label(copied ? "Copied — paste into Notes to keep" : "Copy settings for Edit Widget", systemImage: "doc.on.doc")
+                    }
+                    LabeledContent("Saved designs reach widgets", value: AppGroup.isShared ? "Yes" : "No")
                 } footer: {
                     Text(AppGroup.isShared
                          ? "Saved designs appear in the widget's Edit Widget → Saved design."
-                         : "Your sideload setup doesn't share data with widgets, so saved designs can't reach them. The widget's own Edit Widget panel (language, theme, font…) always works.")
+                         : "Sideloaded installs can't share data between the app and widgets, so a saved design can't appear on your Home Screen by itself. Copy the settings above, then in the widget choose Edit Widget and enter the same language, theme, font and the two hex colors.")
                 }
             }
             .navigationTitle("Studio").navigationBarTitleDisplayMode(.inline)
