@@ -100,7 +100,7 @@ struct SelectDesignIntent: WidgetConfigurationIntent {
     @Parameter(title: "Countdown date") var date: Date?
     @Parameter(title: "Text color (hex, optional)") var textHex: String?
     @Parameter(title: "Background color (hex, optional)") var backgroundHex: String?
-    @Parameter(title: "Background photo", supportedContentTypes: [.image]) var photo: IntentFile?
+    @Parameter(title: "Background photo", supportedTypeIdentifiers: ["public.image"]) var photo: IntentFile?
     @Parameter(title: "Saved design (optional)") var design: DesignEntity?
 }
 
