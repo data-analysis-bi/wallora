@@ -24,6 +24,8 @@ struct DiscoverView: View {
                                 .padding(.horizontal)
                         }.buttonStyle(.plain)
 
+                        ShlokaOfTheDayCard()
+
                         Text("Featured").font(.title2.bold()).padding(.horizontal)
                         WallpaperGrid(wallpapers: catalog.featured)
                         if !catalog.hasRemote {

@@ -33,52 +33,155 @@ struct RGB: Codable, Hashable {
     }
 }
 
+// MARK: - Languages, themes, shlokas
+
+enum ShlokaLanguage: String, Codable, CaseIterable, Identifiable {
+    case sanskrit, sanskritGu, english, hindi, gujarati, sanskritEnglish
+    var id: String { rawValue }
+    var title: String {
+        switch self {
+        case .sanskrit: return "Sanskrit (देवनागरी)"
+        case .sanskritGu: return "Sanskrit (ગુજરાતી લિપિ)"
+        case .english: return "English"
+        case .hindi: return "हिन्दी"
+        case .gujarati: return "ગુજરાતી"
+        case .sanskritEnglish: return "Sanskrit + English"
+        }
+    }
+}
+
+enum WalloraTheme: String, Codable, CaseIterable, Identifiable {
+    case saffron, midnight, parchment, lotus, forest, amoled
+    var id: String { rawValue }
+    var title: String { rawValue.capitalized }
+    var colors: (fg: String, bg: String, bg2: String) {
+        switch self {
+        case .saffron: return ("FFF8E7", "E8761E", "B5460F")
+        case .midnight: return ("F2E9D8", "1B1F3B", "0B0D1C")
+        case .parchment: return ("3B2A1A", "F4E9D3", "E3D0A8")
+        case .lotus: return ("FFE9F3", "A8467F", "5C1F4A")
+        case .forest: return ("E6F2E6", "2E5A45", "14302A")
+        case .amoled: return ("FFFFFF", "000000", "000000")
+        }
+    }
+}
+
+struct Shloka: Codable, Identifiable, Hashable {
+    let id: String
+    let ref: String
+    let sa: String
+    let en: String
+    let hi: String
+    let gu: String
+}
+
+enum Script {
+    /// Devanagari → Gujarati script (the two Unicode blocks are laid out in parallel, 0x180 apart).
+    static func gujarati(_ s: String) -> String {
+        var out = String.UnicodeScalarView()
+        for u in s.unicodeScalars {
+            let v = u.value
+            if ((0x0901...0x0963).contains(v) || (0x0966...0x096F).contains(v)),
+               let n = Unicode.Scalar(v + 0x180), n.properties.generalCategory != .unassigned {
+                out.append(n)
+            } else { out.append(u) }
+        }
+        return String(out)
+    }
+}
+
+enum ShlokaStore {
+    static let all: [Shloka] = {
+        guard let url = Bundle.main.url(forResource: "ramayana_curated", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let list = try? JSONDecoder().decode([Shloka].self, from: data) else { return [] }
+        return list
+    }()
+
+    /// Consecutive slots step through the list, so you see a new verse each day (or every N hours).
+    static func pick(at date: Date, rotationHours: Int) -> Shloka? {
+        guard !all.isEmpty else { return nil }
+        let h = max(1, min(rotationHours, 24))
+        let cal = Calendar.current
+        let days = Int(cal.startOfDay(for: date).timeIntervalSince1970 / 86_400)
+        let slot = cal.component(.hour, from: date) / h
+        let index = days * (24 / h) + slot
+        return all[((index % all.count) + all.count) % all.count]
+    }
+
+    /// Lines to show for a language (primary first).
+    static func lines(_ s: Shloka, _ lang: ShlokaLanguage) -> [String] {
+        switch lang {
+        case .sanskrit: return [s.sa]
+        case .sanskritGu: return [Script.gujarati(s.sa)]
+        case .english: return [s.en]
+        case .hindi: return [s.hi]
+        case .gujarati: return [s.gu]
+        case .sanskritEnglish: return [s.sa, s.en]
+        }
+    }
+}
+
+// MARK: - Widget design model
+
 struct WidgetDesign: Codable, Identifiable, Hashable {
     enum Kind: String, Codable, CaseIterable {
-        case text, quote, countdown, date
-        var title: String { rawValue.capitalized }
+        case shloka, text, countdown, date
+        var title: String {
+            switch self { case .shloka: return "Ramayana shloka"; case .text: return "Custom text"; case .countdown: return "Countdown"; case .date: return "Date" }
+        }
+        init(from decoder: Decoder) throws {
+            let raw = try decoder.singleValueContainer().decode(String.self)
+            self = Kind(rawValue: raw) ?? .shloka   // older builds saved "quote"
+        }
     }
     enum FontStyle: String, Codable, CaseIterable {
         case standard, rounded, serif, mono
         var title: String { rawValue.capitalized }
         var design: Font.Design {
-            switch self {
-            case .standard: return .default
-            case .rounded: return .rounded
-            case .serif: return .serif
-            case .mono: return .monospaced
-            }
+            switch self { case .standard: return .default; case .rounded: return .rounded; case .serif: return .serif; case .mono: return .monospaced }
         }
     }
+
     var id = UUID()
     var name = "My Widget"
-    var kind: Kind = .text
-    var text = "Stay present"
+    var kind: Kind = .shloka
+    var text = "Jai Shri Ram"
     var symbol = "sparkles"
-    var foreground = RGB(r: 1, g: 1, b: 1)
-    var background = RGB(r: 0.05, g: 0.05, b: 0.07)
-    var fontStyle: FontStyle = .rounded
+    var language: ShlokaLanguage = .sanskritEnglish
+    var rotationHours = 24
+    var foreground = RGB(Color(hex: "FFF8E7"))
+    var background = RGB(Color(hex: "E8761E"))
+    var background2: RGB? = RGB(Color(hex: "B5460F"))
+    var fontStyle: FontStyle = .serif
     var targetDate = Calendar.current.date(byAdding: .day, value: 30, to: .now) ?? .now
     var backgroundImage: String? = nil
 
-    static let sample = WidgetDesign()
-}
+    init() {}
 
-enum Quotes {
-    static let all: [(text: String, author: String)] = [
-        ("Begin anywhere.", "John Cage"),
-        ("What we do every day matters more than what we do once in a while.", "Gretchen Rubin"),
-        ("The best view comes after the hardest climb.", "Proverb"),
-        ("Do the next right thing.", "Proverb"),
-        ("Small steps, taken daily, move mountains.", "Proverb"),
-        ("Simplicity is the ultimate sophistication.", "Leonardo da Vinci (attrib.)"),
-        ("You have power over your mind, not outside events.", "Marcus Aurelius"),
-        ("A journey of a thousand miles begins with a single step.", "Lao Tzu")
-    ]
-    static var today: (text: String, author: String) {
-        let d = Calendar.current.ordinality(of: .day, in: .year, for: .now) ?? 0
-        return all[d % all.count]
+    init(from d: Decoder) throws {
+        let c = try d.container(keyedBy: CodingKeys.self)
+        id = (try? c.decode(UUID.self, forKey: .id)) ?? UUID()
+        name = (try? c.decode(String.self, forKey: .name)) ?? name
+        kind = (try? c.decode(Kind.self, forKey: .kind)) ?? .shloka
+        text = (try? c.decode(String.self, forKey: .text)) ?? text
+        symbol = (try? c.decode(String.self, forKey: .symbol)) ?? symbol
+        language = (try? c.decode(ShlokaLanguage.self, forKey: .language)) ?? language
+        rotationHours = (try? c.decode(Int.self, forKey: .rotationHours)) ?? 24
+        foreground = (try? c.decode(RGB.self, forKey: .foreground)) ?? foreground
+        background = (try? c.decode(RGB.self, forKey: .background)) ?? background
+        background2 = try? c.decode(RGB.self, forKey: .background2)
+        fontStyle = (try? c.decode(FontStyle.self, forKey: .fontStyle)) ?? fontStyle
+        targetDate = (try? c.decode(Date.self, forKey: .targetDate)) ?? targetDate
+        backgroundImage = try? c.decode(String.self, forKey: .backgroundImage)
     }
+
+    mutating func apply(theme: WalloraTheme) {
+        let t = theme.colors
+        foreground = RGB(Color(hex: t.fg)); background = RGB(Color(hex: t.bg)); background2 = RGB(Color(hex: t.bg2))
+    }
+
+    static let sample = WidgetDesign()
 }
 
 enum DesignStore {
@@ -107,13 +210,15 @@ enum DesignStore {
     }
 }
 
-// MARK: - Shared widget rendering (used by the app preview AND the widget extension)
+// MARK: - Shared widget rendering (app preview AND widget extension)
 
 struct DesignBackground: View {
     let design: WidgetDesign
     var body: some View {
         ZStack {
-            design.background.color
+            if let b2 = design.background2 {
+                LinearGradient(colors: [design.background.color, b2.color], startPoint: .topLeading, endPoint: .bottomTrailing)
+            } else { design.background.color }
             if let name = design.backgroundImage, let img = DesignStore.image(named: name) {
                 Color.clear.overlay(Image(uiImage: img).resizable().scaledToFill()).clipped()
                 Color.black.opacity(0.28)
@@ -125,35 +230,16 @@ struct DesignBackground: View {
 struct DesignContent: View {
     let design: WidgetDesign
     let family: WidgetFamily
+    var date: Date = .now
 
     private var days: Int {
         let cal = Calendar.current
-        return cal.dateComponents([.day], from: cal.startOfDay(for: .now), to: cal.startOfDay(for: design.targetDate)).day ?? 0
+        return cal.dateComponents([.day], from: cal.startOfDay(for: date), to: cal.startOfDay(for: design.targetDate)).day ?? 0
     }
-    private var headline: String {
-        switch design.kind {
-        case .text: return design.text
-        case .quote: return Quotes.today.text
-        case .countdown: return "\(max(days, 0))"
-        case .date: return Date.now.formatted(.dateTime.day())
-        }
-    }
-    private var subline: String {
-        switch design.kind {
-        case .text: return design.name
-        case .quote: return Quotes.today.author
-        case .countdown: return "days · \(design.text)"
-        case .date: return Date.now.formatted(.dateTime.weekday(.wide).month(.wide))
-        }
-    }
-    private var bigSize: CGFloat {
-        let long = design.kind == .quote || design.kind == .text
-        switch family {
-        case .systemSmall: return long ? 18 : 52
-        case .systemMedium: return long ? 24 : 60
-        default: return long ? 32 : 84
-        }
-    }
+    private var shloka: Shloka? { ShlokaStore.pick(at: date, rotationHours: design.rotationHours) }
+    private var verseLines: [String] { shloka.map { ShlokaStore.lines($0, design.language) } ?? ["Add ramayana_curated.json"] }
+
+    private func f(_ size: CGFloat, _ weight: Font.Weight = .semibold) -> Font { .system(size: size, weight: weight, design: design.fontStyle.design) }
 
     var body: some View {
         switch family {
@@ -161,32 +247,74 @@ struct DesignContent: View {
             ZStack {
                 AccessoryWidgetBackground()
                 VStack(spacing: 0) {
-                    Image(systemName: design.symbol).font(.caption)
-                    Text(design.kind == .countdown ? "\(max(days, 0))" : design.kind == .date ? Date.now.formatted(.dateTime.day()) : String(design.text.prefix(3)))
-                        .font(.system(.title3, design: design.fontStyle.design, weight: .semibold)).minimumScaleFactor(0.5)
+                    if !design.symbol.isEmpty && design.kind != .shloka { Image(systemName: design.symbol).font(.caption) }
+                    Text(circularText).font(f(design.kind == .shloka ? 22 : 18)).minimumScaleFactor(0.5)
                 }
             }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 2) {
-                Label(design.kind == .countdown ? design.text : design.name, systemImage: design.symbol)
-                    .font(.system(.caption, design: design.fontStyle.design, weight: .bold))
-                Text(design.kind == .countdown ? "\(max(days, 0)) days" : headline)
-                    .font(.system(.footnote, design: design.fontStyle.design)).lineLimit(2)
+                switch design.kind {
+                case .shloka:
+                    Text(verseLines[0].replacingOccurrences(of: "\n", with: " ")).font(f(12, .medium)).lineLimit(3).minimumScaleFactor(0.7)
+                    if let s = shloka { Text(s.ref).font(.system(size: 10)).opacity(0.7).lineLimit(1) }
+                case .countdown:
+                    Label(design.text, systemImage: design.symbol).font(f(12, .bold))
+                    Text("\(max(days, 0)) days").font(f(14))
+                case .date:
+                    Text(date.formatted(.dateTime.weekday(.wide))).font(f(14, .bold))
+                    Text(date.formatted(.dateTime.month(.wide).day())).font(f(12, .regular))
+                case .text:
+                    Text(design.text).font(f(13)).lineLimit(3)
+                }
             }.frame(maxWidth: .infinity, alignment: .leading)
         case .accessoryInline:
-            Label(design.kind == .countdown ? "\(max(days, 0))d · \(design.text)" : headline, systemImage: design.symbol)
-        default:
-            VStack(alignment: .leading, spacing: 6) {
-                Image(systemName: design.symbol).font(.title3.weight(.semibold))
-                Spacer(minLength: 0)
-                Text(headline)
-                    .font(.system(size: bigSize, weight: .semibold, design: design.fontStyle.design))
-                    .minimumScaleFactor(0.5).lineLimit(design.kind == .quote || design.kind == .text ? 5 : 1)
-                Text(subline).font(.system(.caption, design: design.fontStyle.design)).opacity(0.7).lineLimit(1)
+            switch design.kind {
+            case .shloka: Label(shloka?.ref ?? "Ramayana", systemImage: "sparkles")
+            case .countdown: Label("\(max(days, 0))d · \(design.text)", systemImage: design.symbol.isEmpty ? "hourglass" : design.symbol)
+            case .date: Text(date.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day()))
+            case .text: Text(design.text)
             }
-            .foregroundStyle(design.foreground.color)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .padding(family == .systemSmall ? 2 : 6)
+        default:
+            homeLayout
         }
+    }
+
+    private var circularText: String {
+        switch design.kind {
+        case .shloka: return "ॐ"
+        case .countdown: return "\(max(days, 0))"
+        case .date: return date.formatted(.dateTime.day())
+        case .text: return String(design.text.prefix(3))
+        }
+    }
+
+    private var homeLayout: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            if !design.symbol.isEmpty {
+                Image(systemName: design.symbol).font(.footnote.weight(.semibold)).widgetAccentable()
+            }
+            Spacer(minLength: 0)
+            switch design.kind {
+            case .shloka:
+                let primary: CGFloat = family == .systemSmall ? 14 : (family == .systemMedium ? 17 : 23)
+                let lines = family == .systemSmall ? Array(verseLines.prefix(1)) : verseLines
+                ForEach(lines.indices, id: \.self) { i in
+                    Text(lines[i]).font(f(i == 0 ? primary : primary * 0.72, i == 0 ? .semibold : .regular))
+                        .opacity(i == 0 ? 1 : 0.85).minimumScaleFactor(0.55).widgetAccentable(i == 0)
+                }
+                if let s = shloka { Text(s.ref).font(.system(size: 10, design: design.fontStyle.design)).opacity(0.65).lineLimit(1) }
+            case .text:
+                Text(design.text).font(f(family == .systemSmall ? 22 : 32)).minimumScaleFactor(0.5).widgetAccentable()
+                Text(design.name).font(.caption).opacity(0.7)
+            case .countdown:
+                Text("\(max(days, 0))").font(f(family == .systemSmall ? 52 : 70)).widgetAccentable()
+                Text("days · \(design.text)").font(.caption).opacity(0.75).lineLimit(1)
+            case .date:
+                Text(date.formatted(.dateTime.day())).font(f(family == .systemSmall ? 52 : 70)).widgetAccentable()
+                Text(date.formatted(.dateTime.weekday(.wide).month(.wide))).font(.caption).opacity(0.75)
+            }
+        }
+        .foregroundStyle(design.foreground.color)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
 }

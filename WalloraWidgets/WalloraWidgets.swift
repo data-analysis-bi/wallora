@@ -12,10 +12,63 @@ struct WalloraWidgetBundle: WidgetBundle {
     }
 }
 
-// MARK: - Configurable widget (uses designs made in the Studio)
+// MARK: - Configurable widget (Edit Widget panel — works without App Groups)
+
+enum ContentOption: String, AppEnum {
+    case shloka, text, countdown, date
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Content"
+    static var caseDisplayRepresentations: [ContentOption: DisplayRepresentation] = [
+        .shloka: "Ramayana shloka", .text: "Custom text", .countdown: "Countdown", .date: "Today's date"]
+    var kind: WidgetDesign.Kind {
+        switch self { case .shloka: return .shloka; case .text: return .text; case .countdown: return .countdown; case .date: return .date }
+    }
+}
+
+enum LanguageOption: String, AppEnum {
+    case sanskritEnglish, sanskrit, sanskritGu, english, hindi, gujarati
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Language"
+    static var caseDisplayRepresentations: [LanguageOption: DisplayRepresentation] = [
+        .sanskritEnglish: "Sanskrit + English", .sanskrit: "Sanskrit (देवनागरी)", .sanskritGu: "Sanskrit (ગુજરાતી લિપિ)",
+        .english: "English", .hindi: "हिन्दी", .gujarati: "ગુજરાતી"]
+    var value: ShlokaLanguage { ShlokaLanguage(rawValue: rawValue) ?? .sanskritEnglish }
+}
+
+enum ThemeOption: String, AppEnum {
+    case saffron, midnight, parchment, lotus, forest, amoled
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Theme"
+    static var caseDisplayRepresentations: [ThemeOption: DisplayRepresentation] = [
+        .saffron: "Saffron", .midnight: "Midnight", .parchment: "Parchment", .lotus: "Lotus", .forest: "Forest", .amoled: "AMOLED black"]
+    var value: WalloraTheme { WalloraTheme(rawValue: rawValue) ?? .saffron }
+}
+
+enum FontOption: String, AppEnum {
+    case serif, rounded, standard, mono
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Font"
+    static var caseDisplayRepresentations: [FontOption: DisplayRepresentation] = [
+        .serif: "Serif", .rounded: "Rounded", .standard: "Standard", .mono: "Monospaced"]
+    var value: WidgetDesign.FontStyle { WidgetDesign.FontStyle(rawValue: rawValue) ?? .serif }
+}
+
+enum SymbolOption: String, AppEnum {
+    case sparkles, sun = "sun.max.fill", moon = "moon.stars.fill", leaf = "leaf.fill", flame = "flame.fill",
+         heart = "heart.fill", bolt = "bolt.fill", book = "book.fill", noSymbol = ""
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Symbol"
+    static var caseDisplayRepresentations: [SymbolOption: DisplayRepresentation] = [
+        .sparkles: "Sparkles", .sun: "Sun", .moon: "Moon", .leaf: "Leaf", .flame: "Flame", .heart: "Heart", .bolt: "Bolt", .book: "Book", .noSymbol: "None"]
+}
+
+enum RotationOption: String, AppEnum {
+    case daily, twelve, six, three, hourly
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Change shloka"
+    static var caseDisplayRepresentations: [RotationOption: DisplayRepresentation] = [
+        .daily: "Every day", .twelve: "Every 12 hours", .six: "Every 6 hours", .three: "Every 3 hours", .hourly: "Every hour"]
+    var hours: Int {
+        switch self { case .daily: return 24; case .twelve: return 12; case .six: return 6; case .three: return 3; case .hourly: return 1 }
+    }
+}
 
 struct DesignEntity: AppEntity {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Design"
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Saved design"
     static var defaultQuery = DesignQuery()
     var id: String
     var name: String
@@ -33,9 +86,18 @@ struct DesignQuery: EntityQuery {
 }
 
 struct SelectDesignIntent: WidgetConfigurationIntent {
-    static var title: LocalizedStringResource = "Choose design"
-    static var description = IntentDescription("Pick one of the designs you made in Wallora.")
-    @Parameter(title: "Design") var design: DesignEntity?
+    static var title: LocalizedStringResource = "Customize"
+    static var description = IntentDescription("Choose what the widget shows and how it looks.")
+
+    @Parameter(title: "Content", default: .shloka) var content: ContentOption
+    @Parameter(title: "Language", default: .sanskritEnglish) var language: LanguageOption
+    @Parameter(title: "Theme", default: .saffron) var theme: ThemeOption
+    @Parameter(title: "Font", default: .serif) var font: FontOption
+    @Parameter(title: "Symbol", default: .sparkles) var symbol: SymbolOption
+    @Parameter(title: "Change shloka", default: .daily) var rotation: RotationOption
+    @Parameter(title: "Custom text / event name") var text: String?
+    @Parameter(title: "Countdown date") var date: Date?
+    @Parameter(title: "Saved design (optional)") var design: DesignEntity?
 }
 
 struct DesignEntry: TimelineEntry {
@@ -44,37 +106,58 @@ struct DesignEntry: TimelineEntry {
 }
 
 struct DesignProvider: AppIntentTimelineProvider {
-    private func resolve(_ c: SelectDesignIntent) -> WidgetDesign {
-        let all = DesignStore.load()
-        return all.first { $0.id.uuidString == c.design?.id } ?? all.first ?? .sample
+    private func makeDesign(_ c: SelectDesignIntent) -> WidgetDesign {
+        if let id = c.design?.id, let saved = DesignStore.load().first(where: { $0.id.uuidString == id }) { return saved }
+        var d = WidgetDesign()
+        d.kind = c.content.kind
+        d.language = c.language.value
+        d.fontStyle = c.font.value
+        d.symbol = c.symbol.rawValue
+        d.rotationHours = c.rotation.hours
+        d.apply(theme: c.theme.value)
+        d.text = (c.text?.isEmpty == false ? c.text! : (d.kind == .countdown ? "Event" : "Jai Shri Ram"))
+        d.targetDate = c.date ?? Calendar.current.date(byAdding: .day, value: 30, to: .now) ?? .now
+        d.name = "Wallora"
+        return d
     }
+
     func placeholder(in context: Context) -> DesignEntry { DesignEntry(date: .now, design: .sample) }
     func snapshot(for configuration: SelectDesignIntent, in context: Context) async -> DesignEntry {
-        DesignEntry(date: .now, design: resolve(configuration))
+        DesignEntry(date: .now, design: makeDesign(configuration))
     }
     func timeline(for configuration: SelectDesignIntent, in context: Context) async -> Timeline<DesignEntry> {
-        let next = Calendar.current.startOfDay(for: .now).addingTimeInterval(86_400)
-        return Timeline(entries: [DesignEntry(date: .now, design: resolve(configuration))], policy: .after(next))
+        let d = makeDesign(configuration)
+        let now = Date()
+        let cal = Calendar.current
+        let h = max(1, d.rotationHours)
+        let slotHour = (cal.component(.hour, from: now) / h) * h
+        let slotStart = cal.date(bySettingHour: slotHour, minute: 0, second: 0, of: now) ?? now
+        var entries = [DesignEntry(date: now, design: d)]
+        var t = slotStart.addingTimeInterval(Double(h) * 3600)
+        let end = now.addingTimeInterval(86_400)
+        while t < end { entries.append(DesignEntry(date: t, design: d)); t = t.addingTimeInterval(Double(h) * 3600) }
+        return Timeline(entries: entries, policy: .after(end))
+    }
+}
+
+struct DesignWidgetView: View {
+    let entry: DesignEntry
+    @Environment(\.widgetFamily) private var family
+    var body: some View {
+        DesignContent(design: entry.design, family: family, date: entry.date)
+            .widgetURL(URL(string: "wallora://open"))
+            .containerBackground(for: .widget) { DesignBackground(design: entry.design) }
     }
 }
 
 struct DesignWidget: Widget {
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: "WalloraDesign", intent: SelectDesignIntent.self, provider: DesignProvider()) { entry in
-            DesignWidgetView(design: entry.design)
+        AppIntentConfiguration(kind: "WalloraCustom", intent: SelectDesignIntent.self, provider: DesignProvider()) { entry in
+            DesignWidgetView(entry: entry)
         }
-        .configurationDisplayName("Custom Design")
-        .description("Text, quote, countdown or date widget styled in the Wallora Studio.")
+        .configurationDisplayName("Ramayana & Custom")
+        .description("Valmiki Ramayana shlokas in Sanskrit, Hindi, Gujarati or English — or your own text, countdown or date. Touch and hold → Edit Widget to customize.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
-    }
-}
-
-struct DesignWidgetView: View {
-    let design: WidgetDesign
-    @Environment(\.widgetFamily) private var family
-    var body: some View {
-        DesignContent(design: design, family: family)
-            .containerBackground(for: .widget) { DesignBackground(design: design) }
     }
 }
 
