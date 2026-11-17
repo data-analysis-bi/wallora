@@ -48,7 +48,8 @@ enum WallCategory: String, CaseIterable, Codable, Identifiable {
 struct Wallpaper: Identifiable, Hashable, Codable {
     enum Source: Hashable, Codable {
         case bundled(String)          // file in app bundle (.jpg)
-        case gradient([String])       // procedurally rendered at any resolution
+        case gradient([String])       // plain gradient
+        case procedural(style: String, seed: Int, palette: [String])  // code-generated art
         case remote(thumb: URL, regular: URL, full: URL)
     }
     let id: String

@@ -19,6 +19,7 @@ struct ViewerView: View {
     @State private var busy = false
     @State private var message: String?
     @State private var showGuide = false
+    @State private var saved = false
 
     private var favorite: FavoriteWallpaper? { favorites.first { $0.wallpaperID == wallpaper.id } }
 
@@ -58,8 +59,8 @@ struct ViewerView: View {
                     }
                     if let message { Text(message).font(.footnote).padding(10).background(.ultraThinMaterial, in: Capsule()) }
                     HStack(spacing: 12) {
-                        Button { Task { await save() } } label: {
-                            HStack { if busy { ProgressView() } else { Image(systemName: "arrow.down.to.line") }; Text("Save to Photos") }
+                        Button { Task { await setWallpaper() } } label: {
+                            HStack { if busy { ProgressView() } else { Image(systemName: "iphone.gen3") }; Text(saved ? "Show steps" : "Set as Wallpaper") }
                                 .font(.headline).frame(maxWidth: .infinity).frame(height: 54)
                                 .background(tint.opacity(0.9), in: Capsule()).foregroundStyle(.black)
                         }.disabled(image == nil || busy)
@@ -79,14 +80,17 @@ struct ViewerView: View {
         }
         .sheet(isPresented: $showGuide) {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Saved! Now set it").font(.title2.bold())
-                Text("iOS doesn't let apps change your wallpaper directly, so it takes three taps:").foregroundStyle(.secondary)
-                Label("Open Photos and open this image", systemImage: "photo")
-                Label("Tap Share, then Use as Wallpaper", systemImage: "square.and.arrow.up")
-                Label("Choose Lock Screen, Home Screen or both", systemImage: "iphone")
+                Text("Saved to Photos ✓").font(.title2.bold())
+                Text("Apple doesn't allow any app to change your wallpaper directly. Finish in 3 taps:").foregroundStyle(.secondary)
+                VStack(alignment: .leading, spacing: 12) {
+                    Label("Tap Open Photos — your wallpaper is the newest photo (last in Recents)", systemImage: "1.circle.fill")
+                    Label("Open it, tap the Share button, then Use as Wallpaper", systemImage: "2.circle.fill")
+                    Label("Tap Add, then Set as Wallpaper Pair (or Customize Home Screen)", systemImage: "3.circle.fill")
+                }.font(.subheadline)
                 Button { openURL(URL(string: "photos-redirect://")!) } label: {
                     Text("Open Photos").font(.headline).frame(maxWidth: .infinity).frame(height: 52).background(.tint, in: Capsule()).foregroundStyle(.white)
                 }
+                Text("Alternative: Settings → Wallpaper → Add New Wallpaper → Photos.").font(.footnote).foregroundStyle(.secondary)
             }.padding(24).presentationDetents([.medium])
         }
         .statusBarHidden(mode == .clean)
@@ -97,16 +101,17 @@ struct ViewerView: View {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
-    private func save() async {
+    private func setWallpaper() async {
         guard let image else { return }
+        if saved { showGuide = true; return }
         busy = true; defer { busy = false }
         let status = await PHPhotoLibrary.requestAuthorization(for: .addOnly)
-        guard status == .authorized || status == .limited else { message = "Allow Photos access in Settings to save."; return }
+        guard status == .authorized || status == .limited else { message = "Allow Photos access in Settings → Wallora to save."; return }
         do {
             try await PHPhotoLibrary.shared().performChanges { PHAssetChangeRequest.creationRequestForAsset(from: image) }
             context.insert(DownloadRecord(wallpaperID: wallpaper.id, title: wallpaper.title))
             if let loc = wallpaper.downloadLocation, let key = Keychain.get("unsplash") { await UnsplashProvider(accessKey: key).trackDownload(loc) }
-            message = nil; showGuide = true
+            message = nil; saved = true; showGuide = true
         } catch { message = "Couldn't save: \(error.localizedDescription)" }
     }
 }

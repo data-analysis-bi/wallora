@@ -36,6 +36,11 @@ final class ImageLoader {
             let r = ImageRenderer(content: GradientArt(hex: hex).frame(width: size.width, height: size.height))
             r.scale = 1
             result = r.uiImage
+        case .procedural(let style, let seed, let palette):
+            let size = full ? CGSize(width: 1290, height: 2796) : CGSize(width: 330, height: 715)
+            let r = ImageRenderer(content: ProceduralArt(style: style, seed: seed, palette: palette).frame(width: size.width, height: size.height))
+            r.scale = 1
+            result = r.uiImage
         case .remote(let thumb, let regular, let fullURL):
             let ultra = UserDefaults.standard.string(forKey: "quality") == "ultra"
             let url = full ? (ultra ? fullURL : regular) : thumb

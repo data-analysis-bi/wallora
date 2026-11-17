@@ -48,7 +48,8 @@ struct ProfileView: View {
                 }
                 Section {
                     SecureField("Unsplash Access Key", text: $key).textInputAutocapitalization(.never).autocorrectionDisabled()
-                    Button("Save key & refresh") { Keychain.set(key.trimmingCharacters(in: .whitespaces), for: "unsplash"); Task { await catalog.load() } }
+                    Button(catalog.isLoading ? "Loading…" : "Save key & refresh") { Keychain.set(key.trimmingCharacters(in: .whitespaces), for: "unsplash"); Task { await catalog.load(force: true) } }.disabled(catalog.isLoading)
+                    if let s = catalog.status { Text(s).font(.footnote).foregroundStyle(.secondary) }
                 } header: { Text("Wallpaper source") } footer: { Text("Free key from unsplash.com/developers. Stored in the iOS Keychain. Photos show photographer attribution.") }
                 Section("Widgets") {
                     LabeledContent("Shared with widgets", value: AppGroup.isShared ? "Yes" : "No")

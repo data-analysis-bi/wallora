@@ -32,11 +32,9 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.wallora.app
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        TARGETED_DEVICE_FAMILY: "1"
   WalloraWidgets:
     type: app-extension
     platform: iOS
-    deploymentTarget: "17.0"
     sources: [WalloraWidgets, Shared]
     entitlements:
       path: WalloraWidgets/WalloraWidgets.entitlements
@@ -51,4 +49,3 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.wallora.app.widgets
-        TARGETED_DEVICE_FAMILY: "1"
