@@ -366,5 +366,837 @@
     "en": "Following Bharadvaja’s advice, the three reached Chitrakuta, built a pleasant dwelling, and enjoyed their life in the forest.",
     "hi": "भरद्वाज के निर्देशानुसार तीनों चित्रकूट पहुँचे, एक सुंदर निवास बनाया और वन में आनंदपूर्वक रहने लगे।",
     "gu": "ભરદ્વાજના સૂચન મુજબ ત્રણેય ચિત્રકૂટ પહોંચ્યા, સુંદર નિવાસ બનાવ્યો અને વનમાં આનંદથી રહેવા લાગ્યા."
+  },
+ {
+    "id": "bala-1-2",
+    "ref": "Bala Kanda 1.2",
+    "sa": "कोऽन्वस्मिन् साम्प्रतं लोके गुणवान् कश्च वीर्यवान्।\nधर्मज्ञश्च कृतज्ञश्च सत्यवाक्यो दृढव्रतः॥",
+    "en": "Who in this world today is truly virtuous and valiant — one who knows dharma, remembers kindness, speaks truth and keeps his vows firmly?",
+    "hi": "आज इस संसार में ऐसा कौन है जो गुणवान, पराक्रमी, धर्म को जानने वाला, कृतज्ञ, सत्यवादी और दृढ़ व्रत वाला हो?",
+    "gu": "આજે આ જગતમાં એવો કોણ છે જે ગુણવાન, પરાક્રમી, ધર્મને જાણનાર, કૃતજ્ઞ, સત્યવાદી અને દૃઢ વ્રતવાળો હોય?"
+  },
+  {
+    "id": "bala-2-15",
+    "ref": "Bala Kanda 2.15",
+    "sa": "मा निषाद प्रतिष्ठां त्वमगमः शाश्वतीः समाः।\nयत्क्रौञ्चमिथुनादेकमवधीः काममोहितम्॥",
+    "en": "O hunter, you shall find no lasting peace for endless years — for you struck down one of this loving pair of cranes, blinded by desire.",
+    "hi": "हे निषाद! तुम्हें अनन्त वर्षों तक शान्ति नहीं मिलेगी, क्योंकि तुमने काम से मोहित होकर क्रौञ्च पक्षी के जोड़े में से एक को मार डाला।",
+    "gu": "હે નિષાદ! તને અનંત વર્ષો સુધી શાંતિ નહીં મળે, કારણ કે તેં કામથી મોહિત થઈને ક્રૌંચ પક્ષીના જોડામાંથી એકને મારી નાખ્યું."
+  },
+  {
+    "id": "bala-2-36",
+    "ref": "Bala Kanda 2.36–37",
+    "sa": "श्लोक एव त्वया बद्धो नात्र कार्या विचारणा।\nमच्छन्दादेव ते ब्रह्मन् प्रवर्तेतां सरस्वती॥",
+    "en": "The verse itself has been composed by you — have no doubt. By my will alone, O sage, let Saraswati flow through you.",
+    "hi": "यह श्लोक तुम्हारे द्वारा ही रचा गया है — इसमें कोई संदेह नहीं। हे ब्रह्मन्! मेरी इच्छा से ही सरस्वती तुम्हारे मुख से प्रवाहित हो।",
+    "gu": "આ શ્લોક તમારા દ્વારા જ રચાયો છે — તેમાં કોઈ સંશય નથી. હે બ્રહ્મન્! મારી ઇચ્છાથી જ સરસ્વતી તમારા મુખથી વહે."
+  },
+  {
+    "id": "bala-23-2",
+    "ref": "Bala Kanda 23.2",
+    "sa": "कौसल्या सुप्रजा राम पूर्वा सन्ध्या प्रवर्तते।\nउत्तिष्ठ नरशार्दूल कर्तव्यं दैवमाह्निकम्॥",
+    "en": "O Rama, noble son of Kausalya — the morning twilight has begun. Rise, tiger among men; the sacred daily duties await.",
+    "hi": "हे कौशल्या के सुपुत्र राम! प्रातः सन्ध्या आरम्भ हो गई है। उठो, नरशार्दूल! दैनिक देव-कार्य करना है।",
+    "gu": "હે કૌશલ્યાના સુપુત્ર રામ! પ્રાતઃસંધ્યા શરૂ થઈ ગઈ છે. ઊઠો, નરશાર્દૂલ! દૈનિક દેવ-કાર્ય કરવાનું છે."
+  },
+  {
+    "id": "ayodhya-105-16",
+    "ref": "Ayodhya Kanda 105.16",
+    "sa": "न नर्मयुक्तं वचनं हिनस्ति।\nसत्यं च धर्मं च परं च किंचित्॥",
+    "en": "A word spoken in jest does not wound. Truth and dharma stand above all else.",
+    "hi": "हँसी में कहा गया वचन घायल नहीं करता। सत्य और धर्म सबसे ऊपर हैं।",
+    "gu": "મજાકમાં કહેલું વચન ઘાયલ નથી કરતું. સત્ય અને ધર્મ સૌથી ઉપર છે."
+  },
+  {
+    "id": "ayodhya-109-13",
+    "ref": "Ayodhya Kanda 109.13",
+    "sa": "सत्यमेवेश्वरो लोके सत्ये धर्मः सदाश्रितः।\nसत्यमूलानि सर्वाणि सत्यात् नास्ति परं पदम्॥",
+    "en": "Truth alone is the lord of this world; dharma always rests upon truth. All things are rooted in truth — there is no higher goal than truth.",
+    "hi": "सत्य ही इस लोक का ईश्वर है; धर्म सदा सत्य पर आश्रित है। सब कुछ सत्यमूलक है — सत्य से बढ़कर कोई पद नहीं।",
+    "gu": "સત્ય જ આ લોકનો ઈશ્વર છે; ધર્મ સદા સત્ય પર આધારિત છે. બધું સત્યમૂળક છે — સત્યથી ઊંચું કોઈ પદ નથી."
+  },
+  {
+    "id": "aranya-37-2",
+    "ref": "Aranya Kanda 37.2",
+    "sa": "धर्मो रक्षति रक्षितः।",
+    "en": "Dharma protects those who protect dharma.",
+    "hi": "धर्म उसकी रक्षा करता है जो धर्म की रक्षा करता है।",
+    "gu": "ધર્મ તેની રક્ષા કરે છે જે ધર્મની રક્ષા કરે છે."
+  },
+  {
+    "id": "aranya-37-13",
+    "ref": "Aranya Kanda 37.13",
+    "sa": "न जातु कामान् न भयान् न लोभात्।\nधर्मं त्यजेज्जीवितस्यापि हेतोः॥",
+    "en": "Never abandon dharma for desire, for fear, or for greed — not even for the sake of life itself.",
+    "hi": "काम, भय या लोभ के कारण कभी धर्म का त्याग न करें — जीवन के लिए भी नहीं।",
+    "gu": "કામ, ભય કે લોભને કારણે ક્યારેય ધર્મનો ત્યાગ ન કરો — જીવન માટે પણ નહીં."
+  },
+  {
+    "id": "kishkindha-1-121",
+    "ref": "Kishkindha Kanda 1.121",
+    "sa": "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः।",
+    "en": "May all beings be happy; may all be free from illness.",
+    "hi": "सभी सुखी हों; सभी निरोग हों।",
+    "gu": "બધા સુખી હો; બધા નિરોગ હો."
+  },
+  {
+    "id": "sundara-12-10",
+    "ref": "Sundara Kanda 12.10",
+    "sa": "दृश्यते तु कथं सीतां साध्वीं तमसि संस्थिताम्।",
+    "en": "How is Sita, the pure and devoted one, to be seen while she remains in darkness?",
+    "hi": "अन्धकार में स्थित साध्वी सीता कैसे दिखाई दे?",
+    "gu": "અંધકારમાં સ્થિત સાધ્વી સીતા કેવી રીતે દેખાય?"
+  },
+  {
+    "id": "sundara-42-33",
+    "ref": "Sundara Kanda 42.33",
+    "sa": "जिता लङ्का हनुमता रामस्यार्थे महात्मना।",
+    "en": "Lanka has been conquered by the great-souled Hanuman for Rama’s sake.",
+    "hi": "महात्मा हनुमान ने राम के कार्य के लिए लंका को जीत लिया।",
+    "gu": "મહાત્મા હનુમાને રામના કાર્ય માટે લંકાને જીતી લીધી."
+  },
+  {
+    "id": "yuddha-112-26",
+    "ref": "Yuddha Kanda 112.26",
+    "sa": "मित्रभावेन सम्प्राप्तं न त्यजेयं कथंचन।",
+    "en": "One who has come in friendship — I shall never abandon.",
+    "hi": "मित्र भाव से आया हुआ — उसे मैं किसी भी प्रकार नहीं त्यागूँगा।",
+    "gu": "મિત્ર ભાવથી આવેલા — તેને હું કોઈ પણ રીતે નહીં ત્યાગું."
+  },
+  {
+    "id": "yuddha-18-33",
+    "ref": "Yuddha Kanda 18.33",
+    "sa": "सकृदेव प्रपन्नाय तवास्मीति च याचते।\nअभयं सर्वभूतेभ्यो ददाम्येतद् व्रतं मम॥",
+    "en": "To one who comes to me even once saying ‘I am yours,’ I grant fearlessness from all beings — this is my vow.",
+    "hi": "जो एक बार भी आकर कहे ‘मैं आपका हूँ’, उसे मैं सब प्राणियों से अभय देता हूँ — यही मेरा व्रत है।",
+    "gu": "જે એક વાર પણ આવીને કહે ‘હું તમારો છું’, તેને હું બધા પ્રાણીઓથી અભય આપું છું — આ જ મારું વ્રત છે."
+  },
+  {
+    "id": "yuddha-107-5",
+    "ref": "Yuddha Kanda 107.6 (Aditya Hridayam)",
+    "sa": "आदित्यं हृदये ध्यात्वा सर्वशत्रुविनाशनम्।",
+    "en": "Meditating on the Sun in the heart — destroyer of all enemies.",
+    "hi": "हृदय में आदित्य का ध्यान करो — जो सब शत्रुओं का नाश करने वाला है।",
+    "gu": "હૃદયમાં આદિત્યનું ધ્યાન કરો — જે બધા શત્રુઓનો નાશ કરનાર છે."
+  },
+  {
+    "id": "bala-1-1",
+    "ref": "Bala Kanda 1.1",
+    "sa": "तपःस्वाध्यायनिरतं तपस्वी वाग्विदां वरम्।\nनारदं परिपप्रच्छ वाल्मीकिर्मुनिपुङ्गवम्॥",
+    "en": "The ascetic Valmiki, foremost among sages, asked Narada — devoted to austerity and study, best among the eloquent.",
+    "hi": "तप और स्वाध्याय में लगे, वाणी के जानकारों में श्रेष्ठ नारद से तपस्वी वाल्मीकि ने पूछा।",
+    "gu": "તપ અને સ્વાધ્યાયમાં લાગેલા, વાણીના જાણકારોમાં શ્રેષ્ઠ નારદને તપસ્વી વાલ્મીકિએ પૂછ્યું."
+  },
+  {
+    "id": "bala-1-3",
+    "ref": "Bala Kanda 1.3",
+    "sa": "चारित्रेण च को युक्तः सर्वभूतेषु को हितः।\nविद्वान् कः कः समर्थश्च कश्चैकप्रियदर्शनः॥",
+    "en": "Who is endowed with good character? Who is kind to all beings? Who is wise, capable, and pleasing to behold alone?",
+    "hi": "कौन सदाचार से युक्त है? कौन सब प्राणियों का हितैषी है? कौन विद्वान्, समर्थ और एकमात्र प्रियदर्शन है?",
+    "gu": "કોણ સદાચારથી યુક્ત છે? કોણ બધા પ્રાણીઓનો હિતૈષી છે? કોણ વિદ્વાન, સમર્થ અને એકમાત્ર પ્રિયદર્શન છે?"
+  },
+  {
+    "id": "bala-1-4",
+    "ref": "Bala Kanda 1.4",
+    "sa": "आत्मवान् को जितक्रोधो द्युतिमान् कोऽनसूयकः।\nकस्य बिभ्यति देवाश्च जातरोषस्य संयुगे॥",
+    "en": "Who is self-possessed, conqueror of anger, radiant, free of envy? Whom do the gods fear when his wrath is roused in battle?",
+    "hi": "कौन आत्मवान्, जितक्रोध, तेजस्वी और अनसूय है? युद्ध में जिसके क्रोध से देवता भी डरते हैं?",
+    "gu": "કોણ આત્મવાન, જિતક્રોધ, તેજસ્વી અને અનસૂય છે? યુદ્ધમાં જેના ક્રોધથી દેવતા પણ ડરે છે?"
+  },
+  {
+    "id": "bala-1-8",
+    "ref": "Bala Kanda 1.8",
+    "sa": "इक्ष्वाकुवंशप्रभवो रामो नाम जनैः श्रुतः।\nनियतात्मा महावीर्यो द्युतिमान् धृतिमान् वशी॥",
+    "en": "Born in the Ikshvaku line, known among people as Rama — self-controlled, of great valour, radiant, steadfast, and master of himself.",
+    "hi": "इक्ष्वाकु वंश में उत्पन्न, लोगों में राम नाम से प्रसिद्ध — नियतात्मा, महावीर्य, तेजस्वी, धैर्यवान् और वशी।",
+    "gu": "ઇક્ષ્વાકુ વંશમાં જન્મેલા, લોકોમાં રામ નામથી પ્રસિદ્ધ — નિયતાત્મા, મહાવીર્ય, તેજસ્વી, ધૈર્યવાન અને વશી."
+  },
+  {
+    "id": "bala-1-18",
+    "ref": "Bala Kanda 1.18",
+    "sa": "विष्णुना सदृशो वीर्ये सोमवत् प्रियदर्शनः।\nकालाग्निसदृशः क्रोधे क्षमया पृथिवीसमः॥",
+    "en": "In valour like Vishnu, in appearance dear as the moon; in anger like the fire of time, in forbearance equal to the earth.",
+    "hi": "वीर्य में विष्णु के समान, दर्शन में चन्द्रमा के समान प्रिय; क्रोध में कालाग्नि के समान, क्षमा में पृथ्वी के समान।",
+    "gu": "વીર્યમાં વિષ્ણુ સમાન, દર્શનમાં ચંદ્ર સમાન પ્રિય; ક્રોધમાં કાલાગ્નિ સમાન, ક્ષમામાં પૃથ્વી સમાન."
+  },
+  {
+    "id": "bala-2-18",
+    "ref": "Bala Kanda 2.18",
+    "sa": "मा निषाद प्रतिष्ठां त्वमगमः शाश्वतीः समाः।",
+    "en": "O hunter, may you never find lasting rest through the endless years.",
+    "hi": "हे निषाद! तुम्हें शाश्वत वर्षों तक प्रतिष्ठा न मिले।",
+    "gu": "હે નિષાદ! તને શાશ્વત વર્ષો સુધી પ્રતિષ્ઠા ન મળે."
+  },
+  {
+    "id": "bala-15-2",
+    "ref": "Bala Kanda 15.2",
+    "sa": "इष्टिं तेऽहं करिष्यामि पुत्रीयां पुत्रकारणात्।",
+    "en": "I shall perform for you the sacrifice for obtaining a son.",
+    "hi": "पुत्र प्राप्ति के लिए मैं तुम्हारे लिए पुत्रीया इष्टि करूँगा।",
+    "gu": "પુત્ર પ્રાપ્તિ માટે હું તમારે માટે પુત્રીયા ઇષ્ટિ કરીશ."
+  },
+  {
+    "id": "bala-18-8",
+    "ref": "Bala Kanda 18.8",
+    "sa": "रामो रामो राम इति प्रजाणामभवन् कथाः।",
+    "en": "Among the people the talk was only of Rama, Rama, Rama.",
+    "hi": "प्रजाओं में राम-राम-राम की ही कथाएँ चलती रहीं।",
+    "gu": "પ્રજાઓમાં રામ-રામ-રામની જ કથાઓ ચાલતી રહી."
+  },
+  {
+    "id": "bala-26-2",
+    "ref": "Bala Kanda 26.2",
+    "sa": "अहिंसा सत्यमक्रोधः स्वाध्यायस्तप आर्जवम्।",
+    "en": "Non-violence, truth, freedom from anger, study, austerity, and sincerity.",
+    "hi": "अहिंसा, सत्य, अक्रोध, स्वाध्याय, तप और सरलता।",
+    "gu": "અહિંસા, સત્ય, અક્રોધ, સ્વાધ્યાય, તપ અને સરળતા."
+  },
+  {
+    "id": "bala-35-1",
+    "ref": "Bala Kanda 35.1",
+    "sa": "गङ्गा त्रिपथगा नाम दिव्या भाति सरिद्वरा।",
+    "en": "Ganga, called the triple-pathed, shines as the foremost of divine rivers.",
+    "hi": "त्रिपथगा नाम की दिव्य गंगा नदियों में श्रेष्ठ होकर शोभित होती है।",
+    "gu": "ત્રિપથગા નામની દિવ્ય ગંગા નદીઓમાં શ્રેષ્ઠ થઈને શોભે છે."
+  },
+  {
+    "id": "bala-50-1",
+    "ref": "Bala Kanda 50.1",
+    "sa": "विश्वामित्रं महात्मानं रामो लक्ष्मणपूर्वजः।",
+    "en": "Rama, the elder of Lakshmana, approached the great-souled Vishvamitra.",
+    "hi": "लक्ष्मण के अग्रज राम ने महात्मा विश्वामित्र के पास जाकर कहा।",
+    "gu": "લક્ષ્મણના અગ્રજ રામે મહાત્મા વિશ્વામિત્ર પાસે જઈને કહ્યું."
+  },
+  {
+    "id": "bala-67-1",
+    "ref": "Bala Kanda 67.1",
+    "sa": "इयं सीता मम सुता सहधर्मचरी तव।",
+    "en": "This is Sita, my daughter — your companion in dharma.",
+    "hi": "यह सीता मेरी पुत्री है — तुम्हारी सहधर्मचारिणी।",
+    "gu": "આ સીતા મારી પુત્રી છે — તમારી સહધર્મચારિણી."
+  },
+  {
+    "id": "bala-73-25",
+    "ref": "Bala Kanda 73.25",
+    "sa": "पाणिग्रहणमन्त्रैश्च यथावत् कल्पयन् विधिम्।",
+    "en": "Performing the rite of joining hands with the proper mantras, as prescribed.",
+    "hi": "पाणिग्रहण मन्त्रों से विधिवत संस्कार सम्पन्न करते हुए।",
+    "gu": "પાણિગ્રહણ મંત્રોથી વિધિવત્ સંસ્કાર સંપન્ન કરતાં."
+  },
+  {
+    "id": "bala-76-3",
+    "ref": "Bala Kanda 76.3",
+    "sa": "वीर्यहीनमिवाशक्तं क्षत्रधर्मेण भार्गव।\nअवजानासि मे तेजः पश्य मेऽद्य पराक्रमम्॥",
+    "en": "O Bhargava, you deem me weak and powerless in the dharma of the Kshatriya. Look upon my power — see my prowess today.",
+    "hi": "हे भार्गव! क्षत्रधर्म में तुम मुझे वीर्यहीन और अशक्त समझते हो। मेरा तेज देखो — आज मेरा पराक्रम देखो।",
+    "gu": "હે ભાર્ગવ! ક્ષત્રધર્મમાં તમે મને વીર્યહીન અને અશક્ત સમજો છો. મારું તેજ જુઓ — આજે મારો પરાક્રમ જુઓ."
+  },
+  {
+    "id": "ayodhya-1-1",
+    "ref": "Ayodhya Kanda 1.1",
+    "sa": "गच्छता मातुलकुलं भरतेन तदानघः।",
+    "en": "When the blameless Bharata went to his maternal uncle’s house…",
+    "hi": "जब अनघ भरत मामा के कुल में गए…",
+    "gu": "જ્યારે અનઘ ભરત મામાના કુળમાં ગયા…"
+  },
+  {
+    "id": "ayodhya-2-1",
+    "ref": "Ayodhya Kanda 2.1",
+    "sa": "ततः परिषदं सर्वामामन्त्र्य वसुधाधिपः।",
+    "en": "Then the lord of the earth addressed the entire assembly.",
+    "hi": "तब पृथ्वीपति ने सारी सभा को आमन्त्रित कर कहा।",
+    "gu": "ત્યારે પૃથ્વીપતિએ બધી સભાને આમંત્રિત કરીને કહ્યું."
+  },
+  {
+    "id": "ayodhya-18-1",
+    "ref": "Ayodhya Kanda 18.1",
+    "sa": "पिता दशरथो राजा माता चान्या सुमित्रा।",
+    "en": "King Dasharatha is the father, and Sumitra another mother.",
+    "hi": "पिता राजा दशरथ हैं, और सुमित्रा दूसरी माता हैं।",
+    "gu": "પિતા રાજા દશરથ છે, અને સુમિત્રા બીજી માતા છે."
+  },
+  {
+    "id": "ayodhya-19-20",
+    "ref": "Ayodhya Kanda 19.20",
+    "sa": "न ह्यहं कामये राज्यं न सुखं न च मैथिलीम्।\nत्वामहं कामये राम स्वर्गं वापि त्रिविष्टपम्॥",
+    "en": "I do not desire the kingdom, nor pleasure, nor even Sita of Mithila. O Rama, I desire only you — or even heaven itself.",
+    "hi": "मैं राज्य नहीं चाहता, सुख नहीं, मैथिली को भी नहीं। हे राम! मैं तुम्हें चाहता हूँ — या त्रिविष्टप स्वर्ग को भी।",
+    "gu": "હું રાજ્ય નથી ઇચ્છતો, સુખ નહીં, મૈથિલીને પણ નહીં. હે રામ! હું તમને ઇચ્છું છું — અથવા ત્રિવિષ્ટપ સ્વર્ગને પણ."
+  },
+  {
+    "id": "ayodhya-21-1",
+    "ref": "Ayodhya Kanda 21.1",
+    "sa": "एष वै पूर्वकायार्थं मया जीवितसंशयः।",
+    "en": "For the sake of my father’s word I place even my life in doubt.",
+    "hi": "पिता की आज्ञा के लिए मैंने जीवन का संशय भी स्वीकार किया है।",
+    "gu": "પિતાની આજ્ઞા માટે મેં જીવનનો સંશય પણ સ્વીકાર્યો છે."
+  },
+  {
+    "id": "ayodhya-31-1",
+    "ref": "Ayodhya Kanda 31.1",
+    "sa": "अहं सर्वमिदं जानामि तव राजन् यथातथम्।",
+    "en": "O king, I know all of this of yours exactly as it is.",
+    "hi": "हे राजन्! मैं यह सब तुम्हारे बारे में यथार्थ रूप से जानता हूँ।",
+    "gu": "હે રાજન્! હું આ બધું તમારા વિશે યથાર્થ રીતે જાણું છું."
+  },
+  {
+    "id": "ayodhya-40-1",
+    "ref": "Ayodhya Kanda 40.1",
+    "sa": "राघवोऽपि महतेजा वनवासाय निश्चितः।",
+    "en": "Raghava too, of great radiance, was resolved upon life in the forest.",
+    "hi": "महातेजस्वी राघव भी वनवास के लिए निश्चित हो गए।",
+    "gu": "મહાતેજસ્વી રાઘવ પણ વનવાસ માટે નિશ્ચિત થયા."
+  },
+  {
+    "id": "ayodhya-52-1",
+    "ref": "Ayodhya Kanda 52.1",
+    "sa": "मातरं मामिकां पश्य शोकसंतप्तमानसाम्।",
+    "en": "Look upon my mother, her mind burned by sorrow.",
+    "hi": "मेरी माता को देखो, जिनका मन शोक से संतप्त है।",
+    "gu": "મારી માતાને જુઓ, જેમનું મન શોકથી સંતપ્ત છે."
+  },
+  {
+    "id": "ayodhya-101-1",
+    "ref": "Ayodhya Kanda 101.1",
+    "sa": "धर्म एव हतो हन्ति धर्मो रक्षति रक्षितः।",
+    "en": "Dharma destroyed destroys; dharma protected protects.",
+    "hi": "मारा गया धर्म मारता है; रक्षित धर्म रक्षा करता है।",
+    "gu": "માર્યો ગયેલો ધર્મ મારે છે; રક્ષિત ધર્મ રક્ષા કરે છે."
+  },
+  {
+    "id": "ayodhya-104-1",
+    "ref": "Ayodhya Kanda 104.1",
+    "sa": "भरतस्य वचः श्रुत्वा रामो धर्मभृतां वरः।",
+    "en": "Hearing Bharata’s words, Rama, foremost among upholders of dharma…",
+    "hi": "भरत के वचन सुनकर धर्मभृतों में श्रेष्ठ राम…",
+    "gu": "ભરતના વચન સાંભળીને ધર્મભૃતોમાં શ્રેષ્ઠ રામ…"
+  },
+  {
+    "id": "ayodhya-108-1",
+    "ref": "Ayodhya Kanda 108.1",
+    "sa": "अर्थधर्मौ परित्यज्य यः काममनुवर्तते।",
+    "en": "Whoever, abandoning artha and dharma, follows only desire…",
+    "hi": "जो अर्थ और धर्म को छोड़कर केवल काम का अनुसरण करता है…",
+    "gu": "જે અર્થ અને ધર્મને છોડીને માત્ર કામનું અનુસરણ કરે છે…"
+  },
+  {
+    "id": "ayodhya-109-1",
+    "ref": "Ayodhya Kanda 109.1",
+    "sa": "सत्यस्य वचनं श्रेयः सत्यादपि हितं वदेत्।",
+    "en": "Speaking truth is best; even better is to speak what is beneficial.",
+    "hi": "सत्य वचन श्रेयस्कर है; सत्य से भी हितकर वचन बोलना चाहिए।",
+    "gu": "સત્ય વચન શ્રેયસ્કર છે; સત્યથી પણ હિતકર વચન બોલવું જોઈએ."
+  },
+  {
+    "id": "aranya-1-1",
+    "ref": "Aranya Kanda 1.1",
+    "sa": "प्रविश्य तु महारण्यं दण्डकारण्यमवसत्।",
+    "en": "Entering the great forest, he dwelt in Dandaka.",
+    "hi": "महान अरण्य में प्रवेश कर दण्डकारण्य में निवास किया।",
+    "gu": "મહાન અરણ્યમાં પ્રવેશ કરીને દંડકારણ્યમાં નિવાસ કર્યો."
+  },
+  {
+    "id": "aranya-9-1",
+    "ref": "Aranya Kanda 9.1",
+    "sa": "सीतापि च महाभागा भर्तारमनुगच्छती।",
+    "en": "The highly fortunate Sita also followed her husband.",
+    "hi": "महाभागा सीता भी अपने भर्ता के पीछे-पीछे चलीं।",
+    "gu": "મહાભાગા સીતા પણ પોતાના ભર્તાની પાછળ-પાછળ ચાલી."
+  },
+  {
+    "id": "aranya-15-1",
+    "ref": "Aranya Kanda 15.1",
+    "sa": "पञ्चवटीं नाम स्थलीं रम्यां गजैरुपशोभिताम्।",
+    "en": "A delightful place named Panchavati, adorned by elephants.",
+    "hi": "पंचवटी नामक रम्य स्थली, हाथियों से सुशोभित।",
+    "gu": "પંચવટી નામની રમ્ય સ્થળી, હાથીઓથી સુશોભિત."
+  },
+  {
+    "id": "aranya-18-1",
+    "ref": "Aranya Kanda 18.1",
+    "sa": "शूर्पणखा नाम रक्षसी कामरूपा यशस्विनी।",
+    "en": "A renowned rakshasi named Shurpanakha, able to change form at will.",
+    "hi": "काम रूप धारण करने वाली यशस्विनी राक्षसी शूर्पणखा।",
+    "gu": "કામરૂપ ધારણ કરનારી યશસ્વિની રાક્ષસી શૂર્પણખા."
+  },
+  {
+    "id": "aranya-33-1",
+    "ref": "Aranya Kanda 33.1",
+    "sa": "ततो जटायुः संक्रुद्धो रावणं वाक्यमब्रवीत्।",
+    "en": "Then Jatayu, enraged, spoke these words to Ravana.",
+    "hi": "तब क्रोधित जटायु ने रावण से यह वचन कहा।",
+    "gu": "ત્યારે ક્રોધિત જટાયુએ રાવણને આ વચન કહ્યું."
+  },
+  {
+    "id": "aranya-37-1",
+    "ref": "Aranya Kanda 37.1",
+    "sa": "धर्मो हि परमो लोके धर्मे सत्यं प्रतिष्ठितम्।",
+    "en": "Dharma is supreme in the world; truth is established upon dharma.",
+    "hi": "लोक में धर्म परम है; धर्म में सत्य प्रतिष्ठित है।",
+    "gu": "લોકમાં ધર્મ પરમ છે; ધર્મમાં સત્ય પ્રતિષ્ઠિત છે."
+  },
+  {
+    "id": "aranya-45-1",
+    "ref": "Aranya Kanda 45.1",
+    "sa": "सीताया वचनेनैव गतो रामो महावनम्।",
+    "en": "At Sita’s own word Rama went into the great forest.",
+    "hi": "सीता के वचन से ही राम महावन में गए।",
+    "gu": "સીતાના વચનથી જ રામ મહાવનમાં ગયા."
+  },
+  {
+    "id": "aranya-50-1",
+    "ref": "Aranya Kanda 50.1",
+    "sa": "ह्रियमाणा तु वैदेही रावणेन दुरात्मना।",
+    "en": "As Vaidehi was being carried off by the evil-souled Ravana…",
+    "hi": "जब वैदेही को दुरात्मा रावण हर ले जा रहा था…",
+    "gu": "જ્યારે વૈદેહીને દુરાત્મા રાવણ હરી જઈ રહ્યો હતો…"
+  },
+  {
+    "id": "aranya-66-1",
+    "ref": "Aranya Kanda 66.1",
+    "sa": "हा सीते हा ममाये हा सौम्य लक्ष्मणेति च।",
+    "en": "Alas Sita! Alas my life! Alas gentle Lakshmana!",
+    "hi": "हा सीते! हा मेरे प्राण! हा सौम्य लक्ष्मण!",
+    "gu": "હા સીતે! હા મારા પ્રાણ! હા સૌમ્ય લક્ષ્મણ!"
+  },
+  {
+    "id": "aranya-68-1",
+    "ref": "Aranya Kanda 68.1",
+    "sa": "न सीतायाः समं दुःखं विद्यते त्रिषु लोकेषु।",
+    "en": "There is no sorrow equal to Sita’s in the three worlds.",
+    "hi": "तीनों लोकों में सीता के दुःख के समान कोई दुःख नहीं।",
+    "gu": "ત્રણે લોકમાં સીતાના દુઃખ જેવું કોઈ દુઃખ નથી."
+  },
+  {
+    "id": "kishkindha-1-1",
+    "ref": "Kishkindha Kanda 1.1",
+    "sa": "स तां प्रविश्यापरमेण तेजसा।",
+    "en": "Entering that place with supreme radiance…",
+    "hi": "उस स्थान में परम तेज के साथ प्रवेश कर…",
+    "gu": "તે સ્થાનમાં પરમ તેજ સાથે પ્રવેશ કરી…"
+  },
+  {
+    "id": "kishkindha-3-1",
+    "ref": "Kishkindha Kanda 3.1",
+    "sa": "सुग्रीवो नाम दुर्धर्षो वानरेन्द्रो महाबलः।",
+    "en": "The invincible, mighty king of monkeys named Sugriva.",
+    "hi": "दुर्धर्ष, महाबल वानरेन्द्र सुग्रीव नाम का।",
+    "gu": "દુર્ધર્ષ, મહાબળ વાનરેંદ્ર સુગ્રીવ નામનો."
+  },
+  {
+    "id": "kishkindha-5-1",
+    "ref": "Kishkindha Kanda 5.1",
+    "sa": "रामः सुग्रीवमासाद्य मैत्रीं चक्रे हरीश्वरः।",
+    "en": "Rama, meeting Sugriva, formed friendship with the lord of monkeys.",
+    "hi": "राम ने सुग्रीव से मिलकर वानरेश्वर से मैत्री की।",
+    "gu": "રામે સુગ્રીવને મળીને વાનરેશ્વર સાથે મૈત્રી કરી."
+  },
+  {
+    "id": "kishkindha-8-1",
+    "ref": "Kishkindha Kanda 8.1",
+    "sa": "वालिनं नाम दुर्धर्षं भ्रातरं मे महाबलम्।",
+    "en": "My brother Vali, invincible and of great strength…",
+    "hi": "मेरा भाई वाली, दुर्धर्ष और महाबल…",
+    "gu": "મારો ભાઈ વાલી, દુર્ધર્ષ અને મહાબળ…"
+  },
+  {
+    "id": "kishkindha-12-1",
+    "ref": "Kishkindha Kanda 12.1",
+    "sa": "अहं तु तस्य काकुत्स्थ प्रतिज्ञां कर्तुमुद्यतः।",
+    "en": "O Kakutstha, I stand ready to fulfill that promise to him.",
+    "hi": "हे काकुत्स्थ! मैं उसकी प्रतिज्ञा पूरी करने के लिए उद्यत हूँ।",
+    "gu": "હે કાકુત્સ્થ! હું તેની પ્રતિજ્ઞા પૂરી કરવા માટે ઉદ્યત છું."
+  },
+  {
+    "id": "kishkindha-16-1",
+    "ref": "Kishkindha Kanda 16.1",
+    "sa": "न मे स्तेनो न चादत्तो न नष्टं प्रतिपद्यते।",
+    "en": "No thief comes to me, nor does the lost go unrecovered.",
+    "hi": "मेरे पास चोर नहीं आता, और नष्ट वस्तु भी प्राप्त हो जाती है।",
+    "gu": "મારી પાસે ચોર નથી આવતો, અને નષ્ટ વસ્તુ પણ પ્રાપ્ત થઈ જાય છે."
+  },
+  {
+    "id": "kishkindha-22-1",
+    "ref": "Kishkindha Kanda 22.1",
+    "sa": "मित्रद्रोही न भवति यः स मित्रं न विन्दति।",
+    "en": "One who betrays a friend does not find a true friend.",
+    "hi": "जो मित्रद्रोही होता है, उसे सच्चा मित्र नहीं मिलता।",
+    "gu": "જે મિત્રદ્રોહી હોય છે, તેને સાચો મિત્ર નથી મળતો."
+  },
+  {
+    "id": "kishkindha-33-1",
+    "ref": "Kishkindha Kanda 33.1",
+    "sa": "हनूमान् नाम तस्यासीत् सचिवः प्रियदर्शनः।",
+    "en": "He had a counsellor named Hanuman, pleasing to behold.",
+    "hi": "उसका मंत्री हनुमान नाम का था, प्रियदर्शन।",
+    "gu": "તેનો મંત્રી હનુમાન નામનો હતો, પ્રિયદર્શન."
+  },
+  {
+    "id": "kishkindha-41-1",
+    "ref": "Kishkindha Kanda 41.1",
+    "sa": "सर्वं परिमृगाम्यहं जानकीं रामकारणात्।",
+    "en": "I shall search everywhere for Janaki for Rama’s sake.",
+    "hi": "राम के कारण मैं जानकी को सब जगह खोजूँगा।",
+    "gu": "રામને કારણે હું જાનકીને બધી જગ્યાએ શોધીશ."
+  },
+  {
+    "id": "kishkindha-66-1",
+    "ref": "Kishkindha Kanda 66.1",
+    "sa": "समुद्रं लङ्घयिष्यामि हनुमान् प्राप्य मैथिलीम्।",
+    "en": "I, Hanuman, shall cross the ocean and reach the princess of Mithila.",
+    "hi": "मैं हनुमान समुद्र लाँघकर मैथिली को प्राप्त करूँगा।",
+    "gu": "હું હનુમાન સમુદ્ર લાંઘીને મૈથિલીને પ્રાપ્ત કરીશ."
+  },
+  {
+    "id": "sundara-1-1",
+    "ref": "Sundara Kanda 1.1",
+    "sa": "ततो रावणनीतायाः सीतायाः शत्रुकर्शनः।",
+    "en": "Then the tormentor of foes set out in search of Sita, carried off by Ravana.",
+    "hi": "तब शत्रुओं को कष्ट देने वाले ने रावण द्वारा हरी गई सीता की खोज चाही।",
+    "gu": "ત્યારે શત્રુઓને કષ્ટ આપનારે રાવણ દ્વારા હરાયેલી સીતાની શોધ ઇચ્છી."
+  },
+  {
+    "id": "sundara-1-39",
+    "ref": "Sundara Kanda 1.39",
+    "sa": "यावज्जीवं तु मे श्वासस्तावद् रामार्थमुद्यतः।",
+    "en": "As long as breath remains in me, I am ready for Rama’s purpose.",
+    "hi": "जब तक मेरे प्राण हैं, तब तक मैं राम के कार्य के लिए उद्यत हूँ।",
+    "gu": "જ્યાં સુધી મારા પ્રાણ છે, ત્યાં સુધી હું રામના કાર્ય માટે ઉદ્યત છું."
+  },
+  {
+    "id": "sundara-2-1",
+    "ref": "Sundara Kanda 2.1",
+    "sa": "स सागरमनाधृष्यं विक्रमेण महाकपिः।",
+    "en": "That great monkey crossed the unassailable ocean by his valour.",
+    "hi": "उस महाकपि ने विक्रम से अजेय सागर को लाँघा।",
+    "gu": "તે મહાકપિએ વિક્રમથી અજેય સાગરને લાંઘ્યો."
+  },
+  {
+    "id": "sundara-13-1",
+    "ref": "Sundara Kanda 13.1",
+    "sa": "अशोकवनिकामध्ये राक्षसीभिः समावृताम्।",
+    "en": "In the midst of the Ashoka grove, surrounded by rakshasis…",
+    "hi": "अशोक वाटिका के मध्य में राक्षसियों से घिरी हुई…",
+    "gu": "અશોક વાટિકાના મધ્યમાં રાક્ષસીઓથી ઘેરાયેલી…"
+  },
+  {
+    "id": "sundara-15-1",
+    "ref": "Sundara Kanda 15.1",
+    "sa": "सीतां ददर्श हनुमान् राक्षसीभिः समावृताम्।",
+    "en": "Hanuman beheld Sita, surrounded by the rakshasis.",
+    "hi": "हनुमान ने राक्षसियों से घिरी सीता को देखा।",
+    "gu": "હનુમાને રાક્ષસીઓથી ઘેરાયેલી સીતાને જોઈ."
+  },
+  {
+    "id": "sundara-21-1",
+    "ref": "Sundara Kanda 21.1",
+    "sa": "न तु धर्मे मनः कार्यं रावणस्य दुरात्मनः।",
+    "en": "The mind of the evil-souled Ravana is not set upon dharma.",
+    "hi": "दुरात्मा रावण का मन धर्म पर नहीं लगता।",
+    "gu": "દુરાત્મા રાવણનું મન ધર્મ પર નથી લાગતું."
+  },
+  {
+    "id": "sundara-30-1",
+    "ref": "Sundara Kanda 30.1",
+    "sa": "रामदूतोऽहमिति मां विद्धि त्वं वरवर्णिनि।",
+    "en": "Know me, O fair one, as the messenger of Rama.",
+    "hi": "हे वरवर्णिनि! मुझे राम का दूत जानो।",
+    "gu": "હે વરવર્ણિની! મને રામનો દૂત જાણો."
+  },
+  {
+    "id": "sundara-31-1",
+    "ref": "Sundara Kanda 31.1",
+    "sa": "अहं रामस्य संदेशात् त्वामिहागतवान् कपिः।",
+    "en": "I, a monkey, have come here at Rama’s message for you.",
+    "hi": "मैं कपि राम के संदेश से तुम्हारे पास यहाँ आया हूँ।",
+    "gu": "હું કપિ રામના સંદેશથી તમારી પાસે અહીં આવ્યો છું."
+  },
+  {
+    "id": "sundara-34-1",
+    "ref": "Sundara Kanda 34.1",
+    "sa": "जानामि त्वां महाबाहुं राघवं धर्मचारिणम्।",
+    "en": "I know you as the mighty-armed Raghava, follower of dharma.",
+    "hi": "मैं तुम्हें महाबाहु राघव, धर्मचारी के रूप में जानती हूँ।",
+    "gu": "હું તમને મહાબાહુ રાઘવ, ધર્મચારી તરીકે જાણું છું."
+  },
+  {
+    "id": "sundara-38-1",
+    "ref": "Sundara Kanda 38.1",
+    "sa": "न मे हस्तेन गन्तव्यं राघवस्य यशस्विनः।",
+    "en": "I must not go by the hand of another — for the sake of glorious Raghava.",
+    "hi": "यशस्वी राघव के लिए मुझे दूसरे के हाथ से नहीं जाना चाहिए।",
+    "gu": "યશસ્વી રાઘવ માટે મારે બીજાના હાથથી નહીં જવું જોઈએ."
+  },
+  {
+    "id": "sundara-41-1",
+    "ref": "Sundara Kanda 41.1",
+    "sa": "नानावृक्षसमाकीर्णं नानामृगनिषेवितम्।",
+    "en": "Crowded with many trees, frequented by many animals…",
+    "hi": "नाना वृक्षों से भरा, नाना मृगों से सेवित…",
+    "gu": "નાના વૃક્ષોથી ભરેલું, નાના મૃગોથી સેવિત…"
+  },
+  {
+    "id": "sundara-54-1",
+    "ref": "Sundara Kanda 54.1",
+    "sa": "लङ्कां दग्ध्वा पुरीं रम्यां रावणस्य दुरात्मनः।",
+    "en": "Having burned the delightful city of Lanka of the evil-souled Ravana…",
+    "hi": "दुरात्मा रावण की रम्य पुरी लंका को जलाकर…",
+    "gu": "દુરાત્મા રાવણની રમ્ય પુરી લંકાને બાળીને…"
+  },
+  {
+    "id": "sundara-58-1",
+    "ref": "Sundara Kanda 58.1",
+    "sa": "दृष्टा देवी मया सीता रावणस्य निवेशने।",
+    "en": "I have seen the goddess Sita in Ravana’s dwelling.",
+    "hi": "मैंने रावण के निवास में देवी सीता को देखा है।",
+    "gu": "મેં રાવણના નિવાસમાં દેવી સીતાને જોઈ છે."
+  },
+  {
+    "id": "yuddha-1-1",
+    "ref": "Yuddha Kanda 1.1",
+    "sa": "श्रुत्वा हनुमतो वाक्यं यथावद्भाषितम्।",
+    "en": "Hearing Hanuman’s words spoken exactly as they were…",
+    "hi": "हनुमान के यथावत् कहे गए वचन सुनकर…",
+    "gu": "હનુમાનના યથાવત્ કહેલા વચન સાંભળીને…"
+  },
+  {
+    "id": "yuddha-1-2",
+    "ref": "Yuddha Kanda 1.2",
+    "sa": "कृतं हनुमता कार्यं सुमहद् भुवि दुर्लभम्।",
+    "en": "Hanuman has accomplished a very great deed, rare upon the earth.",
+    "hi": "हनुमान ने पृथ्वी पर दुर्लभ ऐसा महान् कार्य किया है।",
+    "gu": "હનુમાને પૃથ્વી પર દુર્લભ એવું મહાન કાર્ય કર્યું છે."
+  },
+  {
+    "id": "yuddha-12-1",
+    "ref": "Yuddha Kanda 12.1",
+    "sa": "सेतुं बध्नामहे गत्वा समुद्रे हरिसत्तमाः।",
+    "en": "O foremost of monkeys, let us go and build a bridge upon the ocean.",
+    "hi": "हे हरिसत्तमों! चलकर समुद्र पर सेतु बाँधते हैं।",
+    "gu": "હે હરિસત્તમો! જઈને સમુદ્ર પર સેતુ બાંધીએ."
+  },
+  {
+    "id": "yuddha-17-1",
+    "ref": "Yuddha Kanda 17.1",
+    "sa": "विभीषणस्तु धर्मज्ञः शरणं ते गमिष्यति।",
+    "en": "Vibhishana, knower of dharma, will come to you for refuge.",
+    "hi": "धर्मज्ञ विभीषण तुम्हारी शरण में आएगा।",
+    "gu": "ધર્મજ્ઞ વિભીષણ તમારી શરણમાં આવશે."
+  },
+  {
+    "id": "yuddha-18-1",
+    "ref": "Yuddha Kanda 18.1",
+    "sa": "मित्रभावेन सम्प्राप्तं न त्यजेयं कथंचन।\nदोषो यद्यपि तस्य स्यात् सतामेतदगर्हितम्॥",
+    "en": "One who has come in friendship I shall never abandon — even if there be fault in him; this is not blamed by the good.",
+    "hi": "मित्र भाव से आए हुए को मैं किसी भी प्रकार नहीं त्यागूँगा — यदि उसमें दोष भी हो; सज्जनों में यह निंदनीय नहीं।",
+    "gu": "મિત્ર ભાવથી આવેલાને હું કોઈ પણ રીતે નહીં ત્યાગું — જો તેમાં દોષ પણ હોય; સજ્જનોમાં આ નિંદનીય નથી."
+  },
+  {
+    "id": "yuddha-41-1",
+    "ref": "Yuddha Kanda 41.1",
+    "sa": "अद्य मां समरे पश्य विक्रान्तं युद्धदुर्मदम्।",
+    "en": "See me today in battle — valiant and fierce in war.",
+    "hi": "आज युद्ध में मुझे देखो — विक्रान्त और युद्धदुर्मद।",
+    "gu": "આજે યુદ્ધમાં મને જુઓ — વિક્રાન્ત અને યુદ્ધદુર્મદ."
+  },
+  {
+    "id": "yuddha-59-1",
+    "ref": "Yuddha Kanda 59.1",
+    "sa": "न मत्तो विद्यते कश्चिद् रणे यो मां विजेष्यति।",
+    "en": "There is none who can defeat me in battle.",
+    "hi": "युद्ध में मुझे जीतने वाला मुझसे कोई नहीं है।",
+    "gu": "યુદ્ધમાં મને જીતનાર મારાથી કોઈ નથી."
+  },
+  {
+    "id": "yuddha-74-1",
+    "ref": "Yuddha Kanda 74.1",
+    "sa": "लक्ष्मणं पतितं दृष्ट्वा रामः क्रोधवशं गतः।",
+    "en": "Seeing Lakshmana fallen, Rama was overcome by anger.",
+    "hi": "लक्ष्मण को गिरा हुआ देखकर राम क्रोध के वश में हो गए।",
+    "gu": "લક્ષ્મણને પડેલા જોઈને રામ ક્રોધના વશમાં થયા."
+  },
+  {
+    "id": "yuddha-101-1",
+    "ref": "Yuddha Kanda 101.1",
+    "sa": "अहं ते शरणं प्राप्तः प्रसीद मम राघव।",
+    "en": "I have come to you for refuge — be gracious to me, O Raghava.",
+    "hi": "मैं तुम्हारी शरण में आया हूँ — हे राघव! मुझ पर प्रसन्न होओ।",
+    "gu": "હું તમારી શરણમાં આવ્યો છું — હે રાઘવ! મારા પર પ્રસન્ન થાઓ."
+  },
+  {
+    "id": "yuddha-107-1",
+    "ref": "Yuddha Kanda 107.1 (Aditya Hridayam)",
+    "sa": "आदित्यहृदयं पुण्यं सर्वशत्रुविनाशनम्।\nजयावहं जपं नित्यम् अक्षय्यं परमं शिवम्॥",
+    "en": "The heart of the Sun is pure, destroyer of all foes, bringing victory; chant it always — imperishable, supreme, auspicious.",
+    "hi": "आदित्यहृदय पुण्य है, सब शत्रुओं का नाश करने वाला, जय देने वाला; नित्य जप करो — अक्षय, परम, शिव।",
+    "gu": "આદિત્યહૃદય પુણ્ય છે, બધા શત્રુઓનો નાશ કરનાર, જય આપનાર; નિત્ય જપ કરો — અક્ષય, પરમ, શિવ."
+  },
+  {
+    "id": "yuddha-107-3",
+    "ref": "Yuddha Kanda 107.3 (Aditya Hridayam)",
+    "sa": "राम राम महाबाहो शृणु गुह्यं सनातनम्।\nयेन सर्वानरीन् वत्स समरे विजयिष्यसि॥",
+    "en": "O Rama, mighty-armed one, hear this eternal secret — by which, O child, you shall conquer all enemies in battle.",
+    "hi": "हे महाबाहु राम! यह गुह्य सनातन सुनो — जिससे हे वत्स! तुम युद्ध में सब शत्रुओं को जीतोगे।",
+    "gu": "હે મહાબાહુ રામ! આ ગુહ્ય સનાતન સાંભળો — જેનાથી હે વત્સ! તમે યુદ્ધમાં બધા શત્રુઓને જીતશો."
+  },
+  {
+    "id": "yuddha-107-15",
+    "ref": "Yuddha Kanda 107.15 (Aditya Hridayam)",
+    "sa": "जय जय नरवाहन जय जय जय जयाह्वय।",
+    "en": "Victory, victory, O bearer of men! Victory, victory, victory, O one called Victory!",
+    "hi": "जय जय नरवाहन! जय जय जय जयाह्वय!",
+    "gu": "જય જય નરવાહન! જય જય જય જયાહ્વય!"
+  },
+  {
+    "id": "yuddha-111-1",
+    "ref": "Yuddha Kanda 111.1",
+    "sa": "हतो रावण इत्युक्त्वा रामः सीतामथाब्रवीत्।",
+    "en": "Saying “Ravana is slain,” Rama then spoke to Sita.",
+    "hi": "‘रावण मारा गया’ कहकर राम ने तब सीता से कहा।",
+    "gu": "‘રાવણ માર્યો ગયો’ કહીને રામે ત્યારે સીતાને કહ્યું."
+  },
+  {
+    "id": "yuddha-117-1",
+    "ref": "Yuddha Kanda 117.1",
+    "sa": "न त्वां त्यक्ष्यामि वैदेहि यथा शचीं पुरंदरः।",
+    "en": "I shall not abandon you, O Vaidehi, as Purandara does not abandon Shachi.",
+    "hi": "हे वैदेहि! मैं तुम्हें नहीं त्यागूँगा, जैसे पुरंदर शची को नहीं त्यागते।",
+    "gu": "હે વૈદેહિ! હું તમને નહીં ત્યાગું, જેમ પુરંદર શચીને નથી ત્યાગતા."
+  },
+  {
+    "id": "yuddha-128-1",
+    "ref": "Yuddha Kanda 128.1",
+    "sa": "राज्यं दत्त्वा तु वैदेह्या भरतं च महाबलम्।",
+    "en": "Having given the kingdom, and with Vaidehi and mighty Bharata…",
+    "hi": "राज्य देकर, वैदेही और महाबल भरत के साथ…",
+    "gu": "રાજ્ય આપીને, વૈદેહી અને મહાબળ ભરત સાથે…"
+  },
+  {
+    "id": "uttara-1-1",
+    "ref": "Uttara Kanda 1.1",
+    "sa": "प्राप्तराज्यस्य रामस्य राक्षसानां वधे कृते।",
+    "en": "When Rama had obtained the kingdom and the rakshasas had been slain…",
+    "hi": "जब राम को राज्य प्राप्त हो गया और राक्षस वध हो गए…",
+    "gu": "જ્યારે રામને રાજ્ય પ્રાપ્ત થયું અને રાક્ષસ વધ થયા…"
+  },
+  {
+    "id": "uttara-32-1",
+    "ref": "Uttara Kanda 32.1",
+    "sa": "सीतां प्रत्याहरिष्यामि पुनरेव महावने।",
+    "en": "I shall take Sita back again into the great forest.",
+    "hi": "मैं सीता को फिर महावन में ले जाऊँगा।",
+    "gu": "હું સીતાને ફરી મહાવનમાં લઈ જઈશ."
+  },
+  {
+    "id": "uttara-45-1",
+    "ref": "Uttara Kanda 45.1",
+    "sa": "कुशलं ते नरव्याघ्र धर्मे चार्थे च नित्यदा।",
+    "en": "May you always prosper, O tiger among men, in dharma and in artha.",
+    "hi": "हे नरव्याघ्र! धर्म और अर्थ में तुम्हारा नित्य कुशल हो।",
+    "gu": "હે નરવ્યાઘ્ર! ધર્મ અને અર્થમાં તમારું નિત્ય કુશળ હો."
+  },
+  {
+    "id": "uttara-50-1",
+    "ref": "Uttara Kanda 50.1",
+    "sa": "लोके रामकथा नित्यं भविष्यति न संशयः।",
+    "en": "In the world the story of Rama will endure forever — of this there is no doubt.",
+    "hi": "लोक में रामकथा नित्य रहेगी — इसमें संशय नहीं।",
+    "gu": "લોકમાં રામકથા નિત્ય રહેશે — તેમાં સંશય નથી."
+  },
+  {
+    "id": "uttara-100-1",
+    "ref": "Uttara Kanda 100.1",
+    "sa": "धर्मेण चार्थेन च कामेन च नित्यशः।",
+    "en": "Always through dharma, artha, and kama…",
+    "hi": "धर्म, अर्थ और काम से नित्य…",
+    "gu": "ધર્મ, અર્થ અને કામથી નિત્ય…"
+  },
+  {
+    "id": "uttara-111-1",
+    "ref": "Uttara Kanda 111.1",
+    "sa": "रामो रामो राम इति प्रजाभिरभिनन्दितः।",
+    "en": "Praised by the people with the cry of Rama, Rama, Rama.",
+    "hi": "प्रजाओं द्वारा राम-राम-राम कहकर अभिनन्दित।",
+    "gu": "પ્રજાઓ દ્વારા રામ-રામ-રામ કહીને અભિનંદિત."
+  },
+  {
+    "id": "yuddha-18-34",
+    "ref": "Yuddha Kanda 18.34",
+    "sa": "आनयैनं हरिश्रेष्ठ दत्तमस्याभयं मया।",
+    "en": "Bring him, O foremost of monkeys — I have granted him fearlessness.",
+    "hi": "हे हरिश्रेष्ठ! उसे लाओ — मैंने उसे अभय दे दिया है।",
+    "gu": "હે હરિશ્રેષ્ઠ! તેને લાવો — મેં તેને અભય આપી દીધું છે."
+  },
+  {
+    "id": "sundara-15-52",
+    "ref": "Sundara Kanda 15.52",
+    "sa": "नमस्तेऽस्तु महाबाहो मम नाथ नमोऽस्तु ते।",
+    "en": "Salutations to you, O mighty-armed one; O my lord, salutations to you.",
+    "hi": "हे महाबाहु! आपको नमस्कार; हे मेरे नाथ! आपको नमस्कार।",
+    "gu": "હે મહાબાહુ! તમને નમસ્કાર; હે મારા નાથ! તમને નમસ્કાર."
+  },
+  {
+    "id": "bala-1-99",
+    "ref": "Bala Kanda 1.99",
+    "sa": "एतदिच्छाम्यहं श्रोतुं परं कौतूहलं हि मे।",
+    "en": "This is what I wish to hear — for great is my curiosity.",
+    "hi": "यही मैं सुनना चाहता हूँ — क्योंकि मुझे बड़ा कौतूहल है।",
+    "gu": "આ જ હું સાંભળવા માંગું છું — કારણ કે મને મોટું કૌતુહલ છે."
+  },
+  {
+    "id": "ayodhya-30-1",
+    "ref": "Ayodhya Kanda 30.1",
+    "sa": "पितुर्वचननिर्देशात् प्रतिज्ञां परिपालयन्।",
+    "en": "Upholding the promise at the direction of his father’s word…",
+    "hi": "पिता के वचन के निर्देश से प्रतिज्ञा का पालन करते हुए…",
+    "gu": "પિતાના વચનના નિર્દેશથી પ્રતિજ્ઞાનું પાલન કરતાં…"
+  },
+  {
+    "id": "aranya-9-15",
+    "ref": "Aranya Kanda 9.15",
+    "sa": "धर्मार्थकामाः समवेक्ष्य सेव्याः।",
+    "en": "Dharma, artha, and kama are to be pursued with due regard.",
+    "hi": "धर्म, अर्थ और काम को सम्यक दृष्टि से सेवन करना चाहिए।",
+    "gu": "ધર્મ, અર્થ અને કામને સમ્યક્ દૃષ્ટિથી સેવન કરવું જોઈએ."
+  },
+  {
+    "id": "kishkindha-15-1",
+    "ref": "Kishkindha Kanda 15.1",
+    "sa": "सत्यं च धर्मं च पराक्रमं च।",
+    "en": "Truth, dharma, and prowess…",
+    "hi": "सत्य, धर्म और पराक्रम…",
+    "gu": "સત્ય, ધર્મ અને પરાક્રમ…"
+  },
+  {
+    "id": "sundara-67-1",
+    "ref": "Sundara Kanda 67.1",
+    "sa": "जयत्यतिबलो रामो लक्ष्मणश्च महाबलः।",
+    "en": "Victorious is the supremely strong Rama, and Lakshmana of great strength.",
+    "hi": "अतिबल राम की जय हो, महाबल लक्ष्मण की जय हो।",
+    "gu": "અતિબળ રામની જય હો, મહાબળ લક્ષ્મણની જય હો."
+  },
+  {
+    "id": "yuddha-120-1",
+    "ref": "Yuddha Kanda 120.1",
+    "sa": "धर्मेण पालिता भूमिः सर्वसस्यसमाकुला।",
+    "en": "The earth protected by dharma is filled with all crops.",
+    "hi": "धर्म से पालित भूमि सब प्रकार की फसलों से भरी होती है।",
+    "gu": "ધર્મથી પાલિત ભૂમિ બધા પ્રકારની પાકથી ભરેલી હોય છે."
+  },
+  {
+    "id": "uttara-70-1",
+    "ref": "Uttara Kanda 70.1",
+    "sa": "राघवस्य कथा दिव्या सर्वलोकसुखावहा।",
+    "en": "The divine story of Raghava brings happiness to all the worlds.",
+    "hi": "राघव की दिव्य कथा सब लोकों को सुख देने वाली है।",
+    "gu": "રાઘવની દિવ્ય કથા બધા લોકોને સુખ આપનારી છે."
+  },
+  {
+    "id": "yuddha-107-24",
+    "ref": "Yuddha Kanda 107.24 (Aditya Hridayam)",
+    "sa": "एष ब्रह्मा च विष्णुश्च शिवः स्कन्दः प्रजापतिः।",
+    "en": "He is Brahma, Vishnu, Shiva, Skanda, and Prajapati.",
+    "hi": "यह ब्रह्मा, विष्णु, शिव, स्कन्द और प्रजापति हैं।",
+    "gu": "આ બ્રહ્મા, વિષ્ણુ, શિવ, સ્કંદ અને પ્રજાપતિ છે."
   }
 ]
